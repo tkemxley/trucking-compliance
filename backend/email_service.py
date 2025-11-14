@@ -24,6 +24,14 @@ class EmailService:
     async def send_compliance_request_notification(self, request_data: dict):
         """Send email notification when a new compliance request is submitted"""
         try:
+            # Get credentials at runtime
+            creds = self._get_credentials()
+            smtp_host = creds['smtp_host']
+            smtp_port = creds['smtp_port']
+            smtp_username = creds['smtp_username']
+            smtp_password = creds['smtp_password']
+            notification_email = creds['notification_email']
+            
             # Create message
             message = MIMEMultipart('alternative')
             message['Subject'] = f"New Compliance Request from {request_data['companyName']}"
