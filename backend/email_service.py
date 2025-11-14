@@ -87,7 +87,11 @@ class EmailService:
             message.attach(html_part)
             
             # Send email using SMTP connection
-            async with aiosmtplib.SMTP(hostname=self.smtp_host, port=self.smtp_port) as smtp:
+            async with aiosmtplib.SMTP(
+                hostname=self.smtp_host, 
+                port=self.smtp_port,
+                use_tls=False
+            ) as smtp:
                 await smtp.starttls()
                 await smtp.login(self.smtp_username, self.smtp_password)
                 await smtp.send_message(message)
