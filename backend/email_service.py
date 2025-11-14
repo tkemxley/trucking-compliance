@@ -9,11 +9,17 @@ logger = logging.getLogger(__name__)
 
 class EmailService:
     def __init__(self):
-        self.smtp_host = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
-        self.smtp_port = int(os.environ.get('SMTP_PORT', '587'))
-        self.smtp_username = os.environ.get('SMTP_USERNAME', '')
-        self.smtp_password = os.environ.get('SMTP_PASSWORD', '')
-        self.notification_email = os.environ.get('NOTIFICATION_EMAIL', '')
+        pass
+    
+    def _get_credentials(self):
+        """Get credentials from environment variables at runtime"""
+        return {
+            'smtp_host': os.environ.get('SMTP_HOST', 'smtp.gmail.com'),
+            'smtp_port': int(os.environ.get('SMTP_PORT', '587')),
+            'smtp_username': os.environ.get('SMTP_USERNAME', ''),
+            'smtp_password': os.environ.get('SMTP_PASSWORD', ''),
+            'notification_email': os.environ.get('NOTIFICATION_EMAIL', '')
+        }
     
     async def send_compliance_request_notification(self, request_data: dict):
         """Send email notification when a new compliance request is submitted"""
