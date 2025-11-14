@@ -35,8 +35,8 @@ class EmailService:
             # Create message
             message = MIMEMultipart('alternative')
             message['Subject'] = f"New Compliance Request from {request_data['companyName']}"
-            message['From'] = self.smtp_username
-            message['To'] = self.notification_email
+            message['From'] = smtp_username
+            message['To'] = notification_email
             
             # Create HTML body
             html_body = f"""
