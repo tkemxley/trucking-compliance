@@ -101,14 +101,14 @@ class EmailService:
             message.attach(html_part)
             
             # Send email using SMTP connection
-            smtp = aiosmtplib.SMTP(hostname=self.smtp_host, port=self.smtp_port, start_tls=False)
+            smtp = aiosmtplib.SMTP(hostname=smtp_host, port=smtp_port, start_tls=False)
             await smtp.connect()
             await smtp.starttls()
-            await smtp.login(self.smtp_username, self.smtp_password)
+            await smtp.login(smtp_username, smtp_password)
             await smtp.send_message(message)
             await smtp.quit()
             
-            logger.info(f"Email notification sent successfully to {self.notification_email}")
+            logger.info(f"Email notification sent successfully to {notification_email}")
             return True
             
         except Exception as e:
