@@ -34,7 +34,9 @@ const Landing = () => {
     setIsSubmitting(true);
 
     try {
-      const result = await mockSubmitComplianceRequest(formData);
+      const response = await axios.post(`${API}/compliance-request`, formData);
+      const result = response.data;
+      
       if (result.success) {
         toast({
           title: 'Success!',
@@ -51,9 +53,10 @@ const Landing = () => {
         });
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: 'Error',
-        description: 'Something went wrong. Please try again.',
+        description: error.response?.data?.detail || 'Something went wrong. Please try again.',
         variant: 'destructive'
       });
     } finally {
