@@ -39,7 +39,7 @@ export const mockFAQData = [
   {
     id: 5,
     question: 'How long does the compliance process take?',
-    answer: 'California CARB: 2-3 weeks, Clean Truck Check: 1-2 weeks, Oregon registration: 1-2 weeks, Oregon temporary permits: 1-3 business days. We handle all documentation and follow up until approval.'
+    answer: 'California CARB: 2-3 weeks, Clean Truck Check: 1-2 weeks, Oregon account setup: 1-2 weeks, Oregon trip permits: 20 minutes (weekdays only), Mileage reports: filed on schedule. We handle all documentation and follow up until completion.'
   },
   {
     id: 6,
