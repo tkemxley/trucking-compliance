@@ -85,6 +85,7 @@ async def submit_compliance_request(request: ComplianceRequestCreate):
             phone=request.phone,
             email=request.email,
             usdotMc=request.usdotMc,
+            serviceNeeded=request.serviceNeeded,
             message=request.message
         )
         
