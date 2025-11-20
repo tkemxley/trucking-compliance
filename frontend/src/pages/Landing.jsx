@@ -474,19 +474,19 @@ const Landing = () => {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {pricingData.california_ctc.services.map((service) => (
-                <Card key={service.id} className="premium-card-blue hover:shadow-xl transition-all">
+                <Card key={service.id} className="premium-card premium-card-blue bg-white">
                   <CardHeader>
-                    <CardTitle className="text-xl">{service.name}</CardTitle>
-                    <CardDescription>{service.description}</CardDescription>
+                    <CardTitle className="text-xl text-gray-900">{service.name}</CardTitle>
+                    <CardDescription className="text-gray-600">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="price-badge mb-4">${service.price}</div>
                     {service.badge && (
-                      <span className="inline-block bg-blue-100 text-blue-900 px-3 py-1 rounded text-sm font-semibold">
+                      <span className="inline-block bg-slate-100 text-slate-900 px-3 py-1 rounded text-sm font-semibold">
                         {service.badge}
                       </span>
                     )}
-                    <Button onClick={scrollToContact} className="w-full mt-4 bg-blue-900 hover:bg-blue-800 text-white">
+                    <Button onClick={scrollToContact} className="w-full mt-4 bg-slate-900 hover:bg-slate-800 text-white font-medium">
                       Select Service
                     </Button>
                   </CardContent>
