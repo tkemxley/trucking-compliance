@@ -110,10 +110,10 @@ const Landing = () => {
               2025 Enforcement is Active
             </div>
             <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Stay Compliant with California CARB & Clean Truck Check
+              California & Oregon Trucking Compliance Made Easy
             </h2>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Avoid costly penalties and operational restrictions. We handle all your CARB registration and Clean Truck Check compliance so you can focus on running your business.
+              Full service for CARB, Clean Truck Check, Oregon registration, and temporary permits. Avoid costly penalties and operational restrictions while we handle all your California and Oregon compliance requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button onClick={scrollToContact} size="lg" className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6">
