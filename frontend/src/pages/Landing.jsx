@@ -723,7 +723,7 @@ const Landing = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-6 text-lg"
+                    className="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-6 text-lg shadow-sm"
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit Request'}
                   </Button>
