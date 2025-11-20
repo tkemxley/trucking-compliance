@@ -76,7 +76,6 @@ async def submit_compliance_request(
     contactPerson: str = Form(...),
     phone: str = Form(...),
     email: str = Form(...),
-    serviceNeeded: str = Form(...),
     usdotMc: Optional[str] = Form(None),
     message: Optional[str] = Form(None),
     file: Optional[UploadFile] = File(None)
