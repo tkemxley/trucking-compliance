@@ -780,28 +780,28 @@ const Landing = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-slate-900 text-white py-12 border-t border-slate-800">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <Shield className="h-10 w-10 text-orange-500" />
+              <Shield className="h-10 w-10 text-slate-400" />
               <div>
                 <h3 className="text-2xl font-bold">GT IRP Service Inc</h3>
-                <p className="text-sm text-gray-400">California & Oregon Compliance Experts</p>
+                <p className="text-sm text-slate-400">California & Oregon Compliance Experts</p>
               </div>
             </div>
             <div className="flex justify-center space-x-4 mb-6">
-              <span className="ca-badge">CALIFORNIA</span>
-              <span className="or-badge">OREGON</span>
+              <span className="ca-badge">California</span>
+              <span className="or-badge">Oregon</span>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-slate-400 mb-4">
               Professional compliance services for CARB, Clean Truck Check, and Oregon requirements
             </p>
             <div className="flex justify-center space-x-6 text-sm">
-              <a href="tel:+17732347187" className="hover:text-orange-400">Phone: +1 773-234-7187</a>
-              <a href="mailto:globaltransportservicesinc@gmail.com" className="hover:text-orange-400">Email Us</a>
+              <a href="tel:+17732347187" className="hover:text-slate-300 transition-colors">Phone: +1 773-234-7187</a>
+              <a href="mailto:globaltransportservicesinc@gmail.com" className="hover:text-slate-300 transition-colors">Email Us</a>
             </div>
-            <p className="text-gray-500 text-sm mt-6">&copy; 2025 GT IRP Service Inc. All rights reserved.</p>
+            <p className="text-slate-500 text-sm mt-6">&copy; 2025 GT IRP Service Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>
