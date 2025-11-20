@@ -78,7 +78,7 @@ const Landing = () => {
               <Shield className="h-8 w-8 text-blue-600" />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">GT IRP Service Inc</h1>
-                <p className="text-xs text-gray-600">California Compliance Experts</p>
+                <p className="text-xs text-gray-600">CA & OR Compliance Experts</p>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-6">
