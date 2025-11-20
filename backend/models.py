@@ -9,6 +9,7 @@ class ComplianceRequestCreate(BaseModel):
     phone: str = Field(..., min_length=1, max_length=50)
     email: EmailStr
     usdotMc: Optional[str] = Field(None, max_length=100)
+    serviceNeeded: Optional[str] = Field(None, max_length=100)
     message: Optional[str] = Field(None, max_length=2000)
 
 class ComplianceRequest(BaseModel):
