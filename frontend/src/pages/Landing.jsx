@@ -125,21 +125,21 @@ const Landing = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white py-20">
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl font-black mb-6">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
               California & Oregon<br/>Trucking Compliance Services
             </h2>
-            <p className="text-2xl mb-8 text-blue-100">
+            <p className="text-2xl mb-10 text-slate-300">
               Expert CARB, Clean Truck Check & Oregon Compliance Solutions
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={scrollToContact} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-xl px-10 py-7">
+              <Button onClick={scrollToContact} size="lg" className="bg-slate-700 hover:bg-slate-600 text-white font-bold text-xl px-10 py-7 shadow-sm">
                 Request Service
               </Button>
               <a href="tel:+17732347187">
-                <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white font-bold text-xl px-10 py-7">
+                <Button size="lg" className="bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xl px-10 py-7 shadow-sm">
                   <Phone className="mr-2 h-6 w-6" />
                   Call: (773) 234-7187
                 </Button>
