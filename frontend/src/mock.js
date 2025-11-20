@@ -1,23 +1,20 @@
-// Mock data for GT IRP Service Inc
-
-export const mockSubmitComplianceRequest = async (formData) => {
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  console.log('Mock form submission:', formData);
-  return {
-    success: true,
-    message: 'Thank you! We will contact you shortly.',
-    data: formData
-  };
-};
+// Mock data for GT IRP Service Inc - Government Style
 
 // Service Categories for Dropdown
 export const serviceOptions = [
-  { value: 'ctc', label: 'California Clean Truck Check (CTC)' },
-  { value: 'carb', label: 'California CARB' },
-  { value: 'oregon_permit', label: 'Oregon Permit' },
-  { value: 'oregon_miles', label: 'Oregon Mileage Reporting' },
-  { value: 'full_package', label: 'Full West Coast Package' },
-  { value: 'not_sure', label: 'Not Sure - Need Help' }
+  { value: 'ctc_registration', label: 'CTC Registration + Adding Truck ($75)' },
+  { value: 'ctc_certificate', label: 'Issuance of CTC Certificate ($25)' },
+  { value: 'ctc_package', label: 'CTC Full Package ($100)' },
+  { value: 'carb_registration', label: 'CARB Registration ($130)' },
+  { value: 'carb_add_truck', label: 'Adding Truck to CARB ($70)' },
+  { value: 'carb_package', label: 'Full CARB Package ($180)' },
+  { value: 'ca_full_compliance', label: 'Full CA Compliance Package ($250)' },
+  { value: 'oregon_account', label: 'Oregon Permit Account Registration ($60)' },
+  { value: 'oregon_permit', label: 'Issuance of Oregon Permits ($40)' },
+  { value: 'oregon_one_trip', label: 'One Trip Oregon Permit ($50)' },
+  { value: 'oregon_miles', label: 'Oregon Miles Filing ($50/filing)' },
+  { value: 'oregon_complete', label: 'Oregon Complete Package + Bond ($200)' },
+  { value: 'not_sure', label: 'Not Sure - Need Consultation' }
 ];
 
 // FAQ Data
@@ -25,156 +22,153 @@ export const mockFAQData = [
   {
     id: 1,
     question: 'What is the difference between CARB and Clean Truck Check?',
-    answer: 'CARB (California Air Resources Board) is the emission registration system for all trucks operating in California. Clean Truck Check (CTC) is the annual smoke opacity testing program. Both are required and separate - you need CARB registration first, then annual CTC compliance.'
+    answer: 'CARB is the California Air Resources Board registration system for emission compliance. Clean Truck Check (CTC) is the annual smoke opacity testing and certification program. Both are mandatory and separate requirements for trucks operating in California.'
   },
   {
     id: 2,
-    question: 'How fast can you issue an Oregon permit?',
-    answer: 'Oregon trip permits are issued in just 20 minutes during weekdays. We handle standard weight vehicles for single or multiple trips. Note: No weekend service, and we don\'t handle overweight/oversize permits.'
+    question: 'What documents do I need to upload for service?',
+    answer: 'Typically you\'ll need: Vehicle registration, VIN documentation, USDOT/MC authority documents, proof of insurance, and any existing CARB or CTC certificates. Our team will guide you on specific requirements after your initial submission.'
   },
   {
     id: 3,
-    question: 'What are Oregon Weight-Mile reports?',
-    answer: 'Oregon requires quarterly or monthly mileage reporting for commercial vehicles. We file these reports on your behalf, handle all calculations, and ensure timely submissions to avoid penalties and account suspension.'
+    question: 'How long does processing take?',
+    answer: 'CTC Registration: 1-2 weeks, CARB Registration: 2-3 weeks, Oregon Account Setup: 1-2 weeks, Oregon Trip Permits: 20 minutes (weekdays), Mileage Filing: processed by deadline.'
   },
   {
     id: 4,
-    question: 'Do I need both CARB and CTC?',
-    answer: 'Yes. If you operate trucks 14,000+ lbs in California, you need both. CARB is your one-time registration (with updates), and CTC is your annual smoke test compliance. Missing either results in penalties and registration holds.'
+    question: 'What are California compliance penalties?',
+    answer: 'CARB violations: $1,000-$10,000 per vehicle. CTC non-compliance: Registration holds, operational restrictions, roadside citations. Both can result in vehicle impoundment and business interruption.'
   },
   {
     id: 5,
-    question: 'What happens if I operate in California without CARB?',
-    answer: 'CARB violations range from $1,000 to $10,000 per vehicle. Your registration can be held, preventing renewal. During roadside inspections, non-compliant vehicles can be impounded. It\'s not worth the risk.'
+    question: 'What are Oregon compliance penalties?',
+    answer: 'Operating without permit: $440 fixed penalty. Late or missing mileage reports: penalties and account suspension. Repeat violations can lead to increased scrutiny and operational restrictions.'
   },
   {
     id: 6,
-    question: 'Can you help if my Oregon account is suspended?',
-    answer: 'Yes! We provide Oregon account reinstatement services. We\'ll help file missing reports, resolve penalties, and get your account back in good standing so you can operate legally in Oregon again.'
+    question: 'Do you provide bond assistance for Oregon?',
+    answer: 'Yes, our Oregon Complete Package includes bond assistance. We help with carrier bond applications, documentation requirements, and ensure your Oregon account is fully compliant and operational.'
   },
   {
     id: 7,
-    question: 'What\'s included in the Full West Coast Package?',
-    answer: 'Our Full West Coast Package includes everything: California CARB registration, California Clean Truck Check compliance, Oregon account setup, mileage reporting, and trip permits. One comprehensive solution for operating across CA and OR.'
+    question: 'Can I add multiple trucks to my account?',
+    answer: 'Yes. For CTC it\'s $75 per registration. For CARB it\'s $70 per additional truck. We offer fleet management services for companies with multiple vehicles - contact us for volume pricing.'
   },
   {
     id: 8,
-    question: 'How long does CARB registration take?',
-    answer: 'Initial CARB registration typically takes 2-3 weeks once we have all your documentation. We handle the entire process including VIN verification, document preparation, submission, and follow-up until approval.'
+    question: 'What is included in the Full CA Compliance Package?',
+    answer: 'The $250 package includes complete CTC registration and certification PLUS full CARB registration. You save $30 compared to purchasing services separately. This covers all California requirements.'
   }
 ];
 
-// Pricing Data - Restructured
-export const pricingCategories = {
+// Pricing Structure
+export const pricingData = {
   california_ctc: {
-    title: 'California Clean Truck Check (CTC)',
+    title: 'California - Clean Truck Check (CTC)',
+    badge: 'CALIFORNIA',
     color: 'blue',
+    icon: '🔵',
     services: [
       {
-        id: 'ctc_account',
-        name: 'CTC Account Setup',
-        price: 150,
-        features: ['Account creation', 'VIN enrollment', 'Initial registration', 'System setup']
+        id: 'ctc_reg',
+        name: 'CTC Registration + Adding Truck',
+        price: 75,
+        description: 'Account setup and vehicle enrollment'
       },
       {
-        id: 'ctc_annual',
-        name: 'Annual CTC Reporting',
-        price: 150,
-        features: ['Annual smoke test coordination', 'Report submission', 'Compliance tracking', 'Deadline reminders']
+        id: 'ctc_cert',
+        name: 'Issuance of CTC Certificate',
+        price: 25,
+        description: 'Annual smoke test certificate'
       },
       {
-        id: 'ctc_fleet',
-        name: 'Fleet Management (Optional)',
-        price: 'Custom',
-        features: ['Multiple vehicle tracking', 'Centralized reporting', 'Fleet-wide compliance', 'Priority support']
+        id: 'ctc_full',
+        name: 'CTC Full Package',
+        price: 100,
+        description: 'Registration + Certification included',
+        badge: 'BEST VALUE'
       }
     ]
   },
   california_carb: {
-    title: 'California CARB',
+    title: 'California - CARB',
+    badge: 'CALIFORNIA',
     color: 'blue',
+    icon: '🔵',
     services: [
       {
         id: 'carb_reg',
         name: 'CARB Registration',
-        price: 120,
-        features: ['Initial registration', 'VIN verification', 'Document preparation', 'Submission & follow-up']
+        price: 130,
+        description: 'Initial CARB system registration'
       },
       {
-        id: 'carb_trucrs',
-        name: 'TRUCRS Updates',
-        price: 95,
-        features: ['System updates', 'Vehicle changes', 'Ownership transfers', 'Status corrections']
+        id: 'carb_add',
+        name: 'Adding Truck to CARB System',
+        price: 70,
+        description: 'Per additional vehicle'
       },
       {
-        id: 'carb_compliance',
-        name: 'Compliance Check',
-        price: 75,
-        features: ['Status verification', 'Violation review', 'Compliance audit', 'Recommendations']
-      },
+        id: 'carb_full',
+        name: 'Full CARB Package',
+        price: 180,
+        description: 'All included - Save $20',
+        badge: 'SAVE $20'
+      }
+    ]
+  },
+  california_bonus: {
+    title: 'Bonus Packages (California Only)',
+    badge: 'CALIFORNIA',
+    color: 'orange',
+    icon: '⭐',
+    services: [
       {
-        id: 'carb_corrective',
-        name: 'Corrective Action Services',
-        price: 150,
-        features: ['Violation resolution', 'Appeal assistance', 'Documentation fixes', 'Compliance restoration']
+        id: 'ca_compliance',
+        name: 'Full Compliance Package',
+        price: 250,
+        description: 'CTC + CARB Complete - Save $30',
+        badge: 'MOST POPULAR',
+        savings: 30
       }
     ]
   },
   oregon: {
     title: 'Oregon Services',
+    badge: 'OREGON',
     color: 'green',
+    icon: '🟢',
     services: [
       {
         id: 'or_account',
-        name: 'Weight-Mile Account Setup',
-        price: 180,
-        features: ['Account opening', 'Truck activation', 'System registration', 'Initial configuration']
+        name: 'Oregon Permit Account Registration',
+        price: 60,
+        description: 'Account setup and activation'
       },
       {
-        id: 'or_permit',
-        name: 'Permit Issuing',
-        price: 85,
-        features: ['20-minute processing', 'Single/multiple trips', 'Weekday service', 'Standard weight only']
+        id: 'or_permits',
+        name: 'Issuance of Oregon Permits',
+        price: 40,
+        description: 'Standard trip permits'
+      },
+      {
+        id: 'or_one_trip',
+        name: 'One Trip Oregon Permit',
+        price: 50,
+        description: 'Single trip authorization'
       },
       {
         id: 'or_miles',
-        name: 'Mileage Reporting',
-        price: 120,
-        features: ['Quarterly or monthly filing', 'Complete calculations', 'Timely submissions', 'Compliance tracking']
+        name: 'Oregon Miles Filing',
+        price: 50,
+        description: 'Per filing (monthly or quarterly)'
       },
       {
-        id: 'or_reinstate',
-        name: 'Account Reinstatement',
-        price: 250,
-        features: ['Suspended account recovery', 'Missing reports filed', 'Penalty resolution', 'Account restoration']
-      },
-      {
-        id: 'or_bond',
-        name: 'Bond Assistance',
-        price: 150,
-        features: ['Bond application help', 'Documentation support', 'Carrier services', 'Compliance guidance']
-      }
-    ]
-  },
-  packages: {
-    title: 'Bonus Packages',
-    color: 'gold',
-    services: [
-      {
-        id: 'pkg_ctc_carb',
-        name: 'CTC + CARB Package',
-        price: 420,
-        popular: true,
-        features: ['Complete CA compliance', 'CARB registration', 'CTC annual reporting', 'Priority processing', 'Save $150'],
-        savings: 150
-      },
-      {
-        id: 'pkg_west_coast',
-        name: 'Full West Coast Package',
-        price: 750,
-        popular: true,
-        features: ['CA: CARB + CTC', 'OR: Account + Permits + Mileage', 'Complete CA & OR coverage', 'Dedicated manager', 'Annual support', 'Save $305'],
-        savings: 305
+        id: 'or_complete',
+        name: 'Oregon Complete Package + Bond',
+        price: 200,
+        description: 'Full service including bond assistance',
+        badge: 'COMPLETE'
       }
     ]
   }
