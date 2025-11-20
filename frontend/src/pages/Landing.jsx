@@ -96,27 +96,27 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Premium Government Header */}
-      <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white sticky top-0 z-50 shadow-xl border-b-4 border-orange-600">
+      <header className="bg-gradient-to-r from-slate-900 to-slate-800 text-white sticky top-0 z-50 shadow-md border-b border-slate-700">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <Shield className="h-10 w-10 text-orange-500" />
+              <Shield className="h-10 w-10 text-slate-400" />
               <div>
                 <h1 className="text-2xl font-bold">GT IRP Service Inc</h1>
-                <p className="text-xs text-blue-200">Professional Compliance Services</p>
+                <p className="text-xs text-slate-300">Professional Compliance Services</p>
               </div>
             </div>
             
             <div className="hidden md:flex items-center space-x-6">
               <div className="flex items-center space-x-3">
-                <span className="ca-badge">CALIFORNIA</span>
-                <span className="or-badge">OREGON</span>
+                <span className="ca-badge">California</span>
+                <span className="or-badge">Oregon</span>
               </div>
-              <a href="tel:+17732347187" className="flex items-center space-x-2 hover:text-orange-400 transition-colors">
+              <a href="tel:+17732347187" className="flex items-center space-x-2 hover:text-slate-300 transition-colors">
                 <Phone className="h-5 w-5" />
                 <span className="font-bold">+1 773-234-7187</span>
               </a>
-              <Button onClick={scrollToContact} className="bg-orange-600 hover:bg-orange-700 text-white font-bold">
+              <Button onClick={scrollToContact} className="bg-slate-700 hover:bg-slate-600 text-white font-bold">
                 Get Started
               </Button>
             </div>
