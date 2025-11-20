@@ -737,11 +737,11 @@ const Landing = () => {
                 <Shield className="h-8 w-8 text-blue-400" />
                 <div>
                   <h3 className="text-xl font-bold">GT IRP Service Inc</h3>
-                  <p className="text-sm text-gray-400">California Compliance Experts</p>
+                  <p className="text-sm text-gray-400">CA & OR Compliance Experts</p>
                 </div>
               </div>
               <p className="text-gray-400">
-                Your trusted partner for CARB and Clean Truck Check compliance. We help trucking companies stay compliant and avoid costly penalties.
+                Your trusted partner for California CARB, Clean Truck Check, and Oregon carrier registration & permits. We help trucking companies stay compliant across multiple states and avoid costly penalties.
               </p>
             </div>
             <div>
