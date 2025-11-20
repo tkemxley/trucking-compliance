@@ -385,7 +385,7 @@ const Landing = () => {
             <div className="mt-8 text-center">
               <p className="text-gray-600 mb-4 font-medium">Or contact us directly</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="tel:+17732347187" className="modern-button inline-flex items-center justify-center">
+                <a href="tel:+17732347187" className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all shadow-md">
                   <Phone className="h-5 w-5 mr-2" />
                   773-234-7187
                 </a>
