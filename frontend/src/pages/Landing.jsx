@@ -369,8 +369,8 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Consequences and Penalties */}
-      <section className="py-20 bg-white">
+      {/* Consequences and Penalties - California */}
+      <section className="py-20 bg-red-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h3 className="text-4xl font-black text-gray-900 mb-4">Our Services & Pricing</h3>
