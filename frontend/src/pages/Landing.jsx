@@ -389,7 +389,7 @@ const Landing = () => {
                   <Phone className="h-5 w-5 mr-2" />
                   773-234-7187
                 </a>
-                <a href="mailto:globaltransportservicesinc@gmail.com" className="modern-button inline-flex items-center justify-center" style={{ background: '#059669' }}>
+                <a href="mailto:globaltransportservicesinc@gmail.com" className="inline-flex items-center justify-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all shadow-md">
                   <Mail className="h-5 w-5 mr-2" />
                   Email Us
                 </a>
