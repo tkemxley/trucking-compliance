@@ -82,21 +82,32 @@ async def submit_compliance_request(
     file: Optional[UploadFile] = File(None)
 ):
     """
-    Handle compliance request submission:
-    1. Save to MongoDB
-    2. Send email notification
-    3. Return response
+    Handle compliance request submission with optional file upload:
+    1. Save file if provided
+    2. Save to MongoDB
+    3. Send email notification
+    4. Return response
     """
     try:
+        file_info = None
+        if file:
+            # Save uploaded file
+            file_location = f"/app/uploads/{file.filename}"
+            os.makedirs("/app/uploads", exist_ok=True)
+            with open(file_location, "wb+") as file_object:
+                file_object.write(await file.read())
+            file_info = file.filename
+            logger.info(f"File uploaded: {file.filename}")
+        
         # Create compliance request object
         compliance_request = ComplianceRequest(
-            companyName=request.companyName,
-            contactPerson=request.contactPerson,
-            phone=request.phone,
-            email=request.email,
-            usdotMc=request.usdotMc,
-            serviceNeeded=request.serviceNeeded,
-            message=request.message
+            companyName=companyName,
+            contactPerson=contactPerson,
+            phone=phone,
+            email=email,
+            usdotMc=usdotMc,
+            serviceNeeded=serviceNeeded,
+            message=message
         )
         
         # Save to MongoDB
