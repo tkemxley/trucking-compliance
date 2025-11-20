@@ -1,74 +1,145 @@
-/* GT IRP Service Inc - Premium Modern Style */
+/* Cyberpunk Trucking Style */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --color-navy: #0f172a;
-  --color-navy-light: #1e293b;
-  --color-emerald: #064e3b;
-  --color-emerald-light: #065f46;
-  --color-slate: #475569;
-  --color-slate-light: #64748b;
-  --color-gray-50: #f8fafc;
-  --color-gray-100: #f1f5f9;
-  --color-gray-900: #0f172a;
+  --cyber-dark: #0a0e27;
+  --cyber-darker: #050818;
+  --cyber-cyan: #00f0ff;
+  --cyber-magenta: #ff006e;
+  --cyber-purple: #8338ec;
+  --cyber-blue: #3a86ff;
+  --cyber-grid: rgba(0, 240, 255, 0.1);
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--color-gray-900);
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--cyber-darker);
+  color: #ffffff;
 }
 
-.gov-header-gradient {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
-}
-
-.ca-badge {
-  background-color: var(--color-navy);
-  color: white;
-  padding: 0.375rem 0.875rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.or-badge {
-  background-color: var(--color-emerald);
-  color: white;
-  padding: 0.375rem 0.875rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.premium-card {
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid var(--color-slate);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-}
-
-.premium-card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-.premium-card-blue {
-  border-left-color: var(--color-navy);
-}
-
-.premium-card-green {
-  border-left-color: var(--color-emerald);
-}
-
-.price-badge {
-  background: var(--color-slate);
-  color: white;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
   font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1.75rem;
-  display: inline-block;
+}
+
+.cyber-gradient {
+  background: linear-gradient(135deg, var(--cyber-purple) 0%, var(--cyber-blue) 50%, var(--cyber-cyan) 100%);
+}
+
+.cyber-text-glow {
+  text-shadow: 0 0 10px var(--cyber-cyan), 0 0 20px var(--cyber-cyan), 0 0 30px var(--cyber-cyan);
+}
+
+.cyber-border {
+  border: 2px solid var(--cyber-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+.cyber-card {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid var(--cyber-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.cyber-card:hover {
+  border-color: var(--cyber-magenta);
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+  transform: translateY(-5px);
+}
+
+.cyber-button {
+  background: linear-gradient(135deg, var(--cyber-cyan), var(--cyber-blue));
+  border: none;
+  color: var(--cyber-dark);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 32px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+  background: linear-gradient(135deg, var(--cyber-magenta), var(--cyber-purple));
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
+  transform: scale(1.05);
+}
+
+.grid-background {
+  background-image: 
+    linear-gradient(var(--cyber-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyber-grid) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.neon-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+  box-shadow: 0 0 10px var(--cyber-cyan);
+}
+
+.price-tag {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 20px var(--cyber-cyan);
+}
+
+.state-badge {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.video-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+  animation: scan-line 3s linear infinite;
+  opacity: 0.5;
 }
