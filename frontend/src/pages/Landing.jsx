@@ -149,7 +149,227 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Pricing Sections */}
+      {/* Why You Need CA & OR Compliance */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+                Why California & Oregon Compliance is Required
+              </h3>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Understanding compliance requirements helps you avoid penalties and keep your business running smoothly
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* California Requirements */}
+              <div>
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-3 h-16 bg-blue-900 rounded"></div>
+                  <div>
+                    <span className="ca-badge mb-2 inline-block">CALIFORNIA</span>
+                    <h4 className="text-3xl font-bold text-gray-900">California Compliance</h4>
+                  </div>
+                </div>
+
+                <Card className="mb-6 border-l-4 border-blue-900">
+                  <CardHeader className="bg-blue-50">
+                    <div className="flex items-center space-x-3">
+                      <Shield className="h-8 w-8 text-blue-900" />
+                      <CardTitle className="text-2xl">CARB Registration</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <p className="text-gray-700 mb-4 font-semibold">Who needs it:</p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>All commercial trucks 14,000+ lbs operating in California</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Required regardless of home state</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Mandatory for emission compliance verification</span>
+                      </li>
+                    </ul>
+                    <p className="text-gray-700 font-semibold mb-2">What it includes:</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Vehicle identification number (VIN) registration</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Emission standard verification</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>TRUCRS database enrollment</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Compliance certificate issuance</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-blue-900">
+                  <CardHeader className="bg-blue-50">
+                    <div className="flex items-center space-x-3">
+                      <FileText className="h-8 w-8 text-blue-900" />
+                      <CardTitle className="text-2xl">Clean Truck Check (CTC)</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <p className="text-gray-700 mb-4 font-semibold">Who needs it:</p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>All diesel trucks 14,000+ lbs operating in California</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Annual compliance required</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Separate from CARB (both required)</span>
+                      </li>
+                    </ul>
+                    <p className="text-gray-700 font-semibold mb-2">What it includes:</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Annual smoke opacity testing</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Test results submission to state</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>CTC certificate issuance</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-blue-900 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Annual renewal tracking</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Oregon Requirements */}
+              <div>
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-3 h-16 bg-green-800 rounded"></div>
+                  <div>
+                    <span className="or-badge mb-2 inline-block">OREGON</span>
+                    <h4 className="text-3xl font-bold text-gray-900">Oregon Compliance</h4>
+                  </div>
+                </div>
+
+                <Card className="mb-6 border-l-4 border-green-800">
+                  <CardHeader className="bg-green-50">
+                    <div className="flex items-center space-x-3">
+                      <Shield className="h-8 w-8 text-green-800" />
+                      <CardTitle className="text-2xl">Oregon Permits</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <p className="text-gray-700 mb-4 font-semibold">Who needs it:</p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>All commercial trucks operating through Oregon</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Interstate carriers crossing Oregon</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Required before entering the state</span>
+                      </li>
+                    </ul>
+                    <p className="text-gray-700 font-semibold mb-2">What it includes:</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Oregon account setup and activation</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Trip permit issuance (issued in 20 minutes)</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Single or multiple trip authorization</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Standard weight vehicles (no overweight/oversize)</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-green-800">
+                  <CardHeader className="bg-green-50">
+                    <div className="flex items-center space-x-3">
+                      <FileText className="h-8 w-8 text-green-800" />
+                      <CardTitle className="text-2xl">Oregon Mileage Reporting</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <p className="text-gray-700 mb-4 font-semibold">Who needs it:</p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Carriers with active Oregon accounts</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Required quarterly or monthly</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>Weight-mile tax calculation</span>
+                      </li>
+                    </ul>
+                    <p className="text-gray-700 font-semibold mb-2">What it includes:</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Mileage tracking and calculations</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Report preparation and filing</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Deadline management</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <div className="w-2 h-2 bg-green-800 rounded-full mt-2 flex-shrink-0"></div>
+                        <span>Account compliance maintenance</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Consequences and Penalties */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
