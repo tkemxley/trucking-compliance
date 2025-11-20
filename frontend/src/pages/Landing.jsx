@@ -254,6 +254,146 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* Oregon Services Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+              OREGON SERVICES
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Oregon Trucking Registration & Permits
+            </h3>
+            <p className="text-gray-700 text-lg">
+              Complete Oregon carrier services including full registration and fast temporary trip permits for hassle-free operation in Oregon.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
+                  <FileText className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">Oregon Carrier Registration</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Complete online registration process</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">IFTA and IRP coordination</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Weight/mile tax compliance</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Annual renewals and updates</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Full documentation support</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-blue-200 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="bg-blue-100 p-3 rounded-lg w-fit mb-2">
+                  <Clock className="h-6 w-6 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl">Oregon Temporary Permits</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Fast 1-3 business day processing</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Single or multiple trip permits</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Oversize/overweight clearance</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Online purchasing available</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Instant confirmation and tracking</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Compliance Information */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+              Comprehensive Compliance Requirements
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <Shield className="h-5 w-5 text-blue-600" />
+                    <span>California Requirements</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">CARB Registration</h4>
+                    <p className="text-gray-600">Mandatory for all commercial trucks 14,000+ lbs operating in CA. Includes emission compliance verification, VIN registration, and annual reporting.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Clean Truck Check</h4>
+                    <p className="text-gray-600">Annual smoke opacity testing required. Must submit results by deadline. Non-compliance results in DMV registration holds.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Documentation Needed</h4>
+                    <p className="text-gray-600">Current vehicle registration, VIN, USDOT/MC number, proof of ownership, weight class verification.</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <FileText className="h-5 w-5 text-green-600" />
+                    <span>Oregon Requirements</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Carrier Registration</h4>
+                    <p className="text-gray-600">Oregon requires all interstate carriers to register. Includes weight-mile tax registration, IFTA credentials, and IRP plates if applicable.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Temporary Permits</h4>
+                    <p className="text-gray-600">For short-term or occasional Oregon operations. Valid for single trip or up to 10 days. Required for non-registered vehicles crossing Oregon.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Documentation Needed</h4>
+                    <p className="text-gray-600">USDOT number, vehicle information, trip details, weight specifications, proof of insurance, operating authority.</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Penalties Section */}
       <section className="py-20 bg-red-50">
         <div className="container mx-auto px-4">
