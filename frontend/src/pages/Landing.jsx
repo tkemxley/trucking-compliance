@@ -446,7 +446,7 @@ const Landing = () => {
       </section>
 
       {/* Detailed Compliance Information */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
@@ -484,12 +484,16 @@ const Landing = () => {
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Carrier Registration</h4>
-                    <p className="text-gray-600">Oregon requires all interstate carriers to register. Includes weight-mile tax registration, IFTA credentials, and IRP plates if applicable.</p>
+                    <h4 className="font-semibold text-gray-900 mb-1">Account Setup</h4>
+                    <p className="text-gray-600">Open Oregon account and activate trucks in the system. Required for operating in Oregon with proper documentation and credentials.</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Temporary Permits</h4>
-                    <p className="text-gray-600">For short-term or occasional Oregon operations. Valid for single trip or up to 10 days. Required for non-registered vehicles crossing Oregon.</p>
+                    <h4 className="font-semibold text-gray-900 mb-1">Trip Permits</h4>
+                    <p className="text-gray-600">Issued in 20 minutes for single or multiple trips. Valid for standard weight vehicles. Weekday service only. Not available for overweight/oversize loads.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Mileage Reports</h4>
+                    <p className="text-gray-600">Quarterly or monthly mileage report filing required. Complete calculations and timely submissions to maintain compliance.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Documentation Needed</h4>
