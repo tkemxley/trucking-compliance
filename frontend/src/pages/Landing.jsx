@@ -732,17 +732,17 @@ const Landing = () => {
             </Card>
 
             <div className="mt-8 text-center">
-              <p className="text-blue-100 mb-4">Or contact us directly:</p>
+              <p className="text-slate-300 mb-4">Or contact us directly:</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="tel:+17732347187" className="flex items-center justify-center space-x-2 bg-green-700 hover:bg-green-600 px-6 py-3 rounded-lg transition-colors">
+                <a href="tel:+17732347187" className="flex items-center justify-center space-x-2 bg-emerald-800 hover:bg-emerald-700 px-6 py-3 rounded-lg transition-colors shadow-sm">
                   <Phone className="h-5 w-5" />
                   <span className="font-bold">+1 773-234-7187</span>
                 </a>
-                <a href="mailto:globaltransportservicesinc@gmail.com" className="flex items-center justify-center space-x-2 bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-lg transition-colors">
+                <a href="mailto:globaltransportservicesinc@gmail.com" className="flex items-center justify-center space-x-2 bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg transition-colors shadow-sm">
                   <Mail className="h-5 w-5" />
                   <span className="font-bold">Email Us</span>
                 </a>
-                <a href="https://wa.me/17732347187" className="flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-500 px-6 py-3 rounded-lg transition-colors">
+                <a href="https://wa.me/17732347187" className="flex items-center justify-center space-x-2 bg-emerald-700 hover:bg-emerald-600 px-6 py-3 rounded-lg transition-colors shadow-sm">
                   <MessageCircle className="h-5 w-5" />
                   <span className="font-bold">WhatsApp</span>
                 </a>
