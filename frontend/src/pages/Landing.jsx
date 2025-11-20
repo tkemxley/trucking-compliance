@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MessageCircle, CheckCircle, AlertTriangle, FileText, Shield, Clock, TrendingUp } from 'lucide-react';
+import { Phone, Mail, MessageCircle, CheckCircle, AlertTriangle, FileText, Shield, Clock, TrendingUp, ChevronDown } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useToast } from '../hooks/use-toast';
-import { mockFAQData, mockPricingData } from '../mock';
+import { mockFAQData, pricingCategories, serviceOptions } from '../mock';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -20,6 +21,7 @@ const Landing = () => {
     phone: '',
     email: '',
     usdotMc: '',
+    serviceNeeded: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,6 +29,10 @@ const Landing = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleServiceChange = (value) => {
+    setFormData(prev => ({ ...prev, serviceNeeded: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -42,13 +48,13 @@ const Landing = () => {
           title: 'Success!',
           description: result.message,
         });
-        // Reset form
         setFormData({
           companyName: '',
           contactPerson: '',
           phone: '',
           email: '',
           usdotMc: '',
+          serviceNeeded: '',
           message: ''
         });
       }
@@ -70,884 +76,235 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      {/* Solid Header - American Trucking Aesthetic */}
+      <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white sticky top-0 z-50 shadow-lg border-b-4 border-amber-500">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <Shield className="h-8 w-8 text-blue-600" />
+            <div className="flex items-center space-x-4">
+              <Shield className="h-10 w-10 text-amber-400" />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">GT IRP Service Inc</h1>
-                <p className="text-xs text-gray-600">CA & OR Compliance Experts</p>
+                <h1 className="text-2xl font-bold">GT IRP Service Inc</h1>
+                <p className="text-xs text-blue-200">California & Oregon Compliance Experts</p>
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="tel:+17732347187" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
-                <Phone className="h-4 w-4" />
-                <span className="text-sm font-medium">+1 773-234-7187</span>
+            
+            {/* Center Info - Desktop */}
+            <div className="hidden lg:flex items-center space-x-6">
+              <div className="flex items-center space-x-2 bg-red-600 px-4 py-2 rounded-lg">
+                <AlertTriangle className="h-5 w-5 animate-pulse" />
+                <span className="font-semibold text-sm">2025 Enforcement Active</span>
+              </div>
+              <div className="flex items-center space-x-4 text-sm">
+                <span className="px-3 py-1 bg-blue-700 rounded">CARB</span>
+                <span className="px-3 py-1 bg-blue-700 rounded">CTC</span>
+                <span className="px-3 py-1 bg-green-700 rounded">Oregon</span>
+              </div>
+            </div>
+
+            {/* Right CTAs */}
+            <div className="hidden md:flex items-center space-x-4">
+              <a href="tel:+17732347187" className="flex items-center space-x-2 hover:text-amber-400 transition-colors">
+                <Phone className="h-5 w-5" />
+                <span className="font-bold text-lg">+1 773-234-7187</span>
               </a>
-              <Button onClick={scrollToContact} className="bg-blue-600 hover:bg-blue-700 text-white">
-                Get Compliance Help
-              </Button>
+              <div className="flex space-x-2">
+                <Button onClick={scrollToContact} className="bg-amber-500 hover:bg-amber-600 text-black font-bold">
+                  Get Compliance Help
+                </Button>
+                <a href="tel:+17732347187">
+                  <Button className="bg-green-600 hover:bg-green-700 text-white font-bold">
+                    Call Now
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Mobile Info */}
+          <div className="lg:hidden mt-3 flex flex-col space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2 bg-red-600 px-3 py-1 rounded text-xs">
+                <AlertTriangle className="h-4 w-4" />
+                <span className="font-semibold">2025 Enforcement Active</span>
+              </div>
+              <a href="tel:+17732347187" className="text-sm font-bold">+1 773-234-7187</a>
+            </div>
+            <div className="flex items-center space-x-2 text-xs">
+              <span className="px-2 py-1 bg-blue-700 rounded">CARB</span>
+              <span className="px-2 py-1 bg-blue-700 rounded">CTC</span>
+              <span className="px-2 py-1 bg-green-700 rounded">Oregon</span>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-gray-50 py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1695222833131-54ee679ae8e5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxsb2dpc3RpY3MlMjB0cnVja3xlbnwwfHx8fDE3NjMxNDY0NTB8MA&ixlib=rb-4.1.0&q=85"
-            alt="Trucking"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Hero Section - American Truck Background */}
+      <section 
+        className="relative py-24 md:py-32 bg-cover bg-center"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.75)), url(https://images.pexels.com/photos/27099095/pexels-photo-27099095.jpeg)',
+          backgroundAttachment: 'fixed'
+        }}
+      >
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <AlertTriangle className="inline h-4 w-4 mr-2" />
-              2025 Enforcement is Active
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <div className="inline-block bg-red-600 px-6 py-3 rounded-full mb-6 animate-pulse">
+              <div className="flex items-center space-x-2">
+                <AlertTriangle className="h-5 w-5" />
+                <span className="font-bold text-lg">2025 California & Oregon Enforcement Active</span>
+              </div>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              California & Oregon Trucking Compliance Made Easy
+            
+            <h2 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+              Stay Compliant.<br />Avoid Penalties.<br />Keep Rolling.
             </h2>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Full service for CARB, Clean Truck Check, Oregon registration, and temporary permits. Avoid costly penalties and operational restrictions while we handle all your California and Oregon compliance requirements.
+            
+            <p className="text-2xl md:text-3xl mb-8 text-blue-100 font-semibold">
+              Expert CARB, Clean Truck Check & Oregon Compliance Services
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={scrollToContact} size="lg" className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6">
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button onClick={scrollToContact} size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-bold text-xl px-10 py-8 shadow-2xl">
                 Get Started Today
               </Button>
               <a href="tel:+17732347187">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
+                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-bold text-xl px-10 py-8 shadow-2xl">
+                  <Phone className="mr-3 h-6 w-6" />
+                  Call Now: (773) 234-7187
                 </Button>
               </a>
             </div>
-            <div className="mt-8 flex flex-wrap gap-6 text-sm text-gray-600">
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                Fast Processing
+            
+            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="bg-blue-900/50 backdrop-blur p-4 rounded-lg border border-blue-500">
+                <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
+                <p className="font-bold">Fast Processing</p>
               </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                Expert Support
+              <div className="bg-blue-900/50 backdrop-blur p-4 rounded-lg border border-blue-500">
+                <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
+                <p className="font-bold">Expert Support</p>
               </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                Annual Compliance
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What is CARB Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                CARB COMPLIANCE
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                What is CARB and Why Does it Matter?
-              </h3>
-              <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                The California Air Resources Board (CARB) is the state agency responsible for regulating air quality and vehicle emissions. All commercial trucks operating in California must register with CARB and comply with strict emission standards.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 p-2 rounded-lg flex-shrink-0">
-                    <Shield className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Mandatory Registration</h4>
-                    <p className="text-gray-600">Required for all trucks operating in California, regardless of home state</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 p-2 rounded-lg flex-shrink-0">
-                    <FileText className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Emission Standards</h4>
-                    <p className="text-gray-600">Trucks must meet California's strict emission requirements</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 p-2 rounded-lg flex-shrink-0">
-                    <AlertTriangle className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Heavy Penalties</h4>
-                    <p className="text-gray-600">Non-compliance results in fines up to $10,000 per violation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1543858671-c460805db8f7"
-                alt="CARB Compliance"
-                className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Clean Truck Check Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 relative">
-              <img
-                src="https://images.unsplash.com/photo-1759671934974-a4928e049dec"
-                alt="Clean Truck Check"
-                className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                CLEAN TRUCK CHECK
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Clean Truck Check Program Enforcement
-              </h3>
-              <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                Clean Truck Check is California's mandatory annual inspection program for heavy-duty diesel trucks. Starting in 2025, enforcement is ramping up with roadside checks and strict penalties for non-compliance.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
-                    <Clock className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Annual Testing Required</h4>
-                    <p className="text-gray-600">Smoke opacity testing must be completed and reported annually</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
-                    <TrendingUp className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Active Enforcement</h4>
-                    <p className="text-gray-600">Roadside inspections and compliance checks are increasing in 2025</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
-                    <FileText className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Complete Documentation</h4>
-                    <p className="text-gray-600">Proper records and reporting are essential to avoid violations</p>
-                  </div>
-                </div>
+              <div className="bg-blue-900/50 backdrop-blur p-4 rounded-lg border border-blue-500">
+                <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
+                <p className="font-bold">Avoid Fines</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* California Services Section */}
-      <section className="py-20 bg-white">
+      {/* Services Overview - CARB, CTC, Oregon clearly visible */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <div className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-              CALIFORNIA SERVICES
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              California CARB & Clean Truck Check Compliance
+          <div className="text-center mb-16">
+            <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Complete West Coast Compliance Solutions
             </h3>
-            <p className="text-gray-700 text-lg">
-              Full-service CARB registration and Clean Truck Check compliance for all commercial trucks operating in California.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We handle everything for California CARB, Clean Truck Check, and Oregon compliance so you can focus on your business.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="border-2 border-blue-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-blue-100 p-3 rounded-lg w-fit mb-2">
-                  <Shield className="h-6 w-6 text-blue-600" />
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* California CARB */}
+            <Card className="border-4 border-blue-600 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+                <div className="flex items-center justify-between mb-2">
+                  <Shield className="h-12 w-12" />
+                  <span className="bg-white text-blue-800 px-3 py-1 rounded-full text-xs font-bold">CALIFORNIA</span>
                 </div>
-                <CardTitle className="text-xl">CARB Registration</CardTitle>
+                <CardTitle className="text-3xl">CARB</CardTitle>
+                <CardDescription className="text-blue-100 text-base">Air Resources Board Registration</CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
+              <CardContent className="pt-6">
+                <ul className="space-y-3 mb-6">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Initial CARB registration</span>
+                    <span>Registration & TRUCRS Updates</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Complete document preparation</span>
+                    <span>Compliance Checks</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">VIN verification services</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Submission and follow-up</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Approval confirmation</span>
+                    <span>Corrective Action Services</span>
                   </li>
                 </ul>
+                <p className="text-2xl font-bold text-blue-600 mb-3">From $75</p>
+                <Button onClick={scrollToContact} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold">Learn More</Button>
               </CardContent>
             </Card>
-            <Card className="border-2 border-blue-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-blue-100 p-3 rounded-lg w-fit mb-2">
-                  <FileText className="h-6 w-6 text-blue-600" />
+
+            {/* California CTC */}
+            <Card className="border-4 border-blue-600 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-amber-500 text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                  Most Popular
+                </span>
+              </div>
+              <CardHeader className="bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+                <div className="flex items-center justify-between mb-2">
+                  <FileText className="h-12 w-12" />
+                  <span className="bg-white text-blue-800 px-3 py-1 rounded-full text-xs font-bold">CALIFORNIA</span>
                 </div>
-                <CardTitle className="text-xl">Clean Truck Check</CardTitle>
+                <CardTitle className="text-3xl">Clean Truck Check</CardTitle>
+                <CardDescription className="text-blue-100 text-base">Annual Smoke Test Compliance</CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
+              <CardContent className="pt-6">
+                <ul className="space-y-3 mb-6">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Annual CTC registration</span>
+                    <span>Account Setup & VIN Enrollment</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Smoke test coordination</span>
+                    <span>Annual Reporting</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Report submission</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Compliance tracking</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Annual renewal reminders</span>
+                    <span>Fleet Management</span>
                   </li>
                 </ul>
+                <p className="text-2xl font-bold text-blue-600 mb-3">From $150</p>
+                <Button onClick={scrollToContact} className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold">Get Started</Button>
+              </CardContent>
+            </Card>
+
+            {/* Oregon */}
+            <Card className="border-4 border-green-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="bg-gradient-to-br from-green-700 to-green-900 text-white">
+                <div className="flex items-center justify-between mb-2">
+                  <TrendingUp className="h-12 w-12" />
+                  <span className="bg-white text-green-800 px-3 py-1 rounded-full text-xs font-bold">OREGON</span>
+                </div>
+                <CardTitle className="text-3xl">Oregon Services</CardTitle>
+                <CardDescription className="text-green-100 text-base">Permits & Mileage Reporting</CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Weight-Mile Account Setup</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>20-Min Permit Issuing</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Mileage Reporting</span>
+                  </li>
+                </ul>
+                <p className="text-2xl font-bold text-green-700 mb-3">From $85</p>
+                <Button onClick={scrollToContact} className="w-full bg-green-700 hover:bg-green-800 text-white font-bold">Learn More</Button>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Oregon Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-              OREGON SERVICES
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Oregon Account Setup & Trip Permits
-            </h3>
-            <p className="text-gray-700 text-lg">
-              Fast Oregon account setup, truck activation, mileage reporting, and trip permits issued in just 20 minutes.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
-                  <Shield className="h-6 w-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Account Setup</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Open Oregon account</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Activate trucks in system</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Complete documentation</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Online submission</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
-                  <Clock className="h-6 w-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Trip Permits</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Issued in 20 minutes</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Single or multiple trips</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Weekday service only</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Standard weight vehicles</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
-                  <FileText className="h-6 w-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Mileage Reports</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Quarterly or monthly filing</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Complete calculations</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Timely submissions</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Compliance tracking</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="max-w-3xl mx-auto mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <p className="text-sm text-gray-700 text-center">
-              <strong>Note:</strong> We do not handle overweight/oversize permits. Trip permits are not available on weekends.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Compliance Information */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-              Comprehensive Compliance Requirements
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <Shield className="h-5 w-5 text-blue-600" />
-                    <span>California Requirements</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">CARB Registration</h4>
-                    <p className="text-gray-600">Mandatory for all commercial trucks 14,000+ lbs operating in CA. Includes emission compliance verification, VIN registration, and annual reporting.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Clean Truck Check</h4>
-                    <p className="text-gray-600">Annual smoke opacity testing required. Must submit results by deadline. Non-compliance results in DMV registration holds.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Documentation Needed</h4>
-                    <p className="text-gray-600">Current vehicle registration, VIN, USDOT/MC number, proof of ownership, weight class verification.</p>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <FileText className="h-5 w-5 text-green-600" />
-                    <span>Oregon Requirements</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Account Setup</h4>
-                    <p className="text-gray-600">Open Oregon account and activate trucks in the system. Required for operating in Oregon with proper documentation and credentials.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Trip Permits</h4>
-                    <p className="text-gray-600">Issued in 20 minutes for single or multiple trips. Valid for standard weight vehicles. Weekday service only. Not available for overweight/oversize loads.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Mileage Reports</h4>
-                    <p className="text-gray-600">Quarterly or monthly mileage report filing required. Complete calculations and timely submissions to maintain compliance.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Documentation Needed</h4>
-                    <p className="text-gray-600">USDOT number, vehicle information, trip details, weight specifications, proof of insurance, operating authority.</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* California Penalties Section */}
-      <section className="py-20 bg-red-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                CALIFORNIA VIOLATIONS
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                California Non-Compliance Penalties
-              </h3>
-              <p className="text-gray-700 text-lg">
-                Don't risk your California operations. CARB and Clean Truck Check violations result in severe consequences.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
-                    <AlertTriangle className="h-6 w-6 text-red-600" />
-                  </div>
-                  <CardTitle className="text-xl">Heavy Fines</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 font-semibold text-lg mb-2">$1,000 - $10,000</p>
-                  <p className="text-gray-600">Per violation. Multiple CARB or CTC violations can accumulate quickly, resulting in devastating financial penalties.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
-                    <Shield className="h-6 w-6 text-red-600" />
-                  </div>
-                  <CardTitle className="text-xl">Registration Holds</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">DMV can place holds on vehicle registration, preventing renewal and legal operation until compliance is achieved.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
-                    <FileText className="h-6 w-6 text-red-600" />
-                  </div>
-                  <CardTitle className="text-xl">Vehicle Impoundment</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Non-compliant vehicles can be impounded during roadside inspections, causing operational delays and towing costs.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Oregon Penalties Section */}
-      <section className="py-20 bg-orange-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                OREGON VIOLATIONS
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Oregon Non-Compliance Penalties
-              </h3>
-              <p className="text-gray-700 text-lg">
-                Operating in Oregon without proper permits or account setup can result in immediate penalties.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-2 border-orange-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-orange-100 p-3 rounded-lg w-fit mb-2">
-                    <AlertTriangle className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <CardTitle className="text-xl">Fixed Penalty</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 font-semibold text-2xl mb-2">$440</p>
-                  <p className="text-gray-600">Per violation for operating without valid Oregon trip permit or proper account setup.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-orange-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-orange-100 p-3 rounded-lg w-fit mb-2">
-                    <Shield className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <CardTitle className="text-xl">Roadside Stops</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Vehicles can be stopped and cited during inspections. Delays in operations and additional scrutiny on future trips.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-2 border-orange-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-orange-100 p-3 rounded-lg w-fit mb-2">
-                    <FileText className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <CardTitle className="text-xl">Mileage Report Fines</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Late or missing mileage reports result in penalties and potential account suspension until all reports are filed.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              How We Help You Stay Compliant
-            </h3>
-            <p className="text-gray-700 text-lg">
-              Our streamlined process makes compliance easy. We handle everything from start to finish.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="text-center">
-              <div className="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                1
-              </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Contact Us</h4>
-              <p className="text-gray-600">Reach out via phone, email, or our contact form</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                2
-              </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Provide Info</h4>
-              <p className="text-gray-600">Share your USDOT/MC number and vehicle details</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                3
-              </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">We Handle It</h4>
-              <p className="text-gray-600">We prepare, submit, and track all documentation</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                ✓
-              </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Stay Compliant</h4>
-              <p className="text-gray-600">Receive approval and ongoing support</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Transparent Pricing
-            </h3>
-            <p className="text-gray-700 text-lg">
-              No hidden fees. Choose the service package that fits your needs.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {mockPricingData.map((plan) => (
-              <Card 
-                key={plan.id} 
-                className={`hover:shadow-xl transition-shadow relative ${
-                  plan.popular ? 'border-2 border-blue-600 shadow-lg' : 'border border-gray-200'
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl mb-2">{plan.title}</CardTitle>
-                  <div className="text-4xl font-bold text-blue-600">
-                    ${plan.price}
-                  </div>
-                  <CardDescription>per service</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-2">
-                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    onClick={scrollToContact}
-                    className={`w-full mt-6 ${
-                      plan.popular 
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                        : 'bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-300'
-                    }`}
-                  >
-                    Get Started
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Frequently Asked Questions
-              </h3>
-              <p className="text-gray-700 text-lg">
-                Get answers to common questions about California and Oregon compliance requirements.
-              </p>
-            </div>
-            <Accordion type="single" collapsible className="space-y-4">
-              {mockFAQData.map((faq) => (
-                <AccordionItem 
-                  key={faq.id} 
-                  value={`item-${faq.id}`}
-                  className="border border-gray-200 rounded-lg px-6 bg-white hover:shadow-md transition-shadow"
-                >
-                  <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-blue-600 py-4">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-700 pb-4 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact & Form Section */}
-      <section id="contact-section" className="py-20 bg-blue-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Request Compliance Help
-              </h3>
-              <p className="text-blue-100 text-lg">
-                Fill out the form below or contact us directly. We'll respond within 24 hours.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Contact Info */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
-                <h4 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h4>
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600 mb-1">Phone</p>
-                      <a href="tel:+17732347187" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
-                        +1 773-234-7187
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600 mb-1">Email</p>
-                      <a href="mailto:globaltransportservicesinc@gmail.com" className="text-lg font-semibold text-gray-900 hover:text-blue-600 break-all">
-                        globaltransportservicesinc@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <MessageCircle className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600 mb-1">WhatsApp</p>
-                      <a href="https://wa.me/17732347187" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
-                        +1 773-234-7187
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-                  <p className="text-sm text-gray-700">
-                    <strong className="text-gray-900">Business Hours:</strong><br />
-                    Monday - Friday: 8:00 AM - 6:00 PM PST<br />
-                    Saturday: 9:00 AM - 2:00 PM PST
-                  </p>
-                </div>
-              </div>
-
-              {/* Form */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Company Name *</label>
-                    <Input
-                      type="text"
-                      name="companyName"
-                      value={formData.companyName}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Your Company Name"
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Contact Person *</label>
-                    <Input
-                      type="text"
-                      name="contactPerson"
-                      value={formData.contactPerson}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Full Name"
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
-                    <Input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="+1 (555) 123-4567"
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="email@example.com"
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">USDOT/MC Number</label>
-                    <Input
-                      type="text"
-                      name="usdotMc"
-                      value={formData.usdotMc}
-                      onChange={handleInputChange}
-                      placeholder="USDOT123456 or MC123456"
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell us about your compliance needs..."
-                      rows={4}
-                      className="w-full"
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg font-semibold"
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <Shield className="h-8 w-8 text-blue-400" />
-                <div>
-                  <h3 className="text-xl font-bold">GT IRP Service Inc</h3>
-                  <p className="text-sm text-gray-400">CA & OR Compliance Experts</p>
-                </div>
-              </div>
-              <p className="text-gray-400">
-                Your trusted partner for California CARB, Clean Truck Check, and Oregon carrier registration & permits. We help trucking companies stay compliant across multiple states and avoid costly penalties.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-blue-400 transition-colors">CARB Compliance</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Clean Truck Check</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Oregon Registration</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Oregon Permits</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Pricing</a></li>
-                <li><a href="#contact-section" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-              <div className="space-y-3 text-gray-400">
-                <p className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4" />
-                  <a href="tel:+17732347187" className="hover:text-blue-400">+1 773-234-7187</a>
-                </p>
-                <p className="flex items-center space-x-2">
-                  <Mail className="h-4 w-4" />
-                  <a href="mailto:globaltransportservicesinc@gmail.com" className="hover:text-blue-400">Email Us</a>
-                </p>
-                <p className="flex items-center space-x-2">
-                  <MessageCircle className="h-4 w-4" />
-                  <a href="https://wa.me/17732347187" className="hover:text-blue-400">WhatsApp</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 GT IRP Service Inc. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* To be continued... */}
     </div>
   );
 };
