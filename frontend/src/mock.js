@@ -28,23 +28,33 @@ export const mockFAQData = [
   },
   {
     id: 3,
+    question: 'Do you help with Oregon trucking permits?',
+    answer: 'Yes! We provide Oregon carrier registration services and Oregon temporary trip permits. Whether you need full registration or quick temporary permits for crossing Oregon, we handle all paperwork and submissions.'
+  },
+  {
+    id: 4,
     question: 'What penalties can I face for non-compliance?',
     answer: 'Non-compliance can result in fines ranging from $1,000 to $10,000 per violation, vehicle registration holds, operational restrictions, and potential impoundment of non-compliant vehicles.'
   },
   {
-    id: 4,
-    question: 'How long does the compliance process take?',
-    answer: 'With our help, CARB registration typically takes 2-3 weeks, and Clean Truck Check registration takes 1-2 weeks. We handle all documentation and follow up until approval.'
-  },
-  {
     id: 5,
-    question: 'Do you provide ongoing support?',
-    answer: 'Yes! We provide annual ongoing support to ensure your fleet stays compliant year after year. We track deadlines and remind you when renewals are due.'
+    question: 'How long does the compliance process take?',
+    answer: 'California CARB: 2-3 weeks, Clean Truck Check: 1-2 weeks, Oregon registration: 1-2 weeks, Oregon temporary permits: 1-3 business days. We handle all documentation and follow up until approval.'
   },
   {
     id: 6,
+    question: 'Do you provide ongoing support?',
+    answer: 'Yes! We provide annual ongoing support to ensure your fleet stays compliant year after year. We track deadlines and remind you when renewals are due for both California and Oregon.'
+  },
+  {
+    id: 7,
     question: 'What information do you need from me?',
     answer: 'We need your USDOT/MC number, vehicle VIN numbers, current registration documents, and basic company information. We\'ll guide you through the entire process.'
+  },
+  {
+    id: 8,
+    question: 'Can you help if I operate in both CA and OR?',
+    answer: 'Absolutely! We specialize in multi-state compliance. We can handle all your California (CARB, Clean Truck Check) and Oregon (registration, temporary permits) requirements in one comprehensive package.'
   }
 ];
 
