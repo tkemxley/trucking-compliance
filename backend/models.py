@@ -19,6 +19,7 @@ class ComplianceRequest(BaseModel):
     phone: str
     email: str
     usdotMc: Optional[str] = None
+    serviceNeeded: Optional[str] = None
     message: Optional[str] = None
     submittedAt: datetime = Field(default_factory=datetime.utcnow)
     status: str = "new"
