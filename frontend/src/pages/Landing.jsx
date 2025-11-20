@@ -456,142 +456,153 @@ const Landing = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-red-50">
+      {/* Pricing Sections - Minimal List Design */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-black text-gray-900 mb-4">Our Services & Pricing</h3>
-            <p className="text-xl text-gray-600">Transparent pricing for all compliance needs</p>
+            <h3 className="text-4xl font-black text-gray-900 mb-4">Services & Pricing</h3>
+            <p className="text-lg text-gray-600">Clear, transparent pricing for all compliance services</p>
           </div>
 
-          {/* California CTC */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-12 bg-blue-900 rounded"></div>
-              <div>
-                <h4 className="text-3xl font-bold text-gray-900">{pricingData.california_ctc.title}</h4>
-                <span className="ca-badge">{pricingData.california_ctc.badge}</span>
+          <div className="max-w-4xl mx-auto space-y-12">
+            {/* California CTC */}
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-indigo-600">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-indigo-100 p-3 rounded-lg">
+                    <svg className="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900">California Clean Truck Check (CTC)</h4>
+                    <span className="inline-block mt-1 px-3 py-1 bg-indigo-100 text-indigo-900 text-xs font-semibold rounded-full">CALIFORNIA</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {pricingData.california_ctc.services.map((service) => (
-                <Card key={service.id} className="premium-card premium-card-blue bg-white">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">{service.name}</CardTitle>
-                    <CardDescription className="text-gray-600">{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="price-badge mb-4">${service.price}</div>
-                    {service.badge && (
-                      <span className="inline-block bg-slate-100 text-slate-900 px-3 py-1 rounded text-sm font-semibold">
-                        {service.badge}
-                      </span>
-                    )}
-                    <Button onClick={scrollToContact} className="w-full mt-4 bg-slate-900 hover:bg-slate-800 text-white font-medium">
-                      Select Service
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* California CARB */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-12 bg-blue-900 rounded"></div>
-              <div>
-                <h4 className="text-3xl font-bold text-gray-900">{pricingData.california_carb.title}</h4>
-                <span className="ca-badge">{pricingData.california_carb.badge}</span>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {pricingData.california_carb.services.map((service) => (
-                <Card key={service.id} className="premium-card premium-card-blue bg-white">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">{service.name}</CardTitle>
-                    <CardDescription className="text-gray-600">{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="price-badge mb-4">${service.price}</div>
-                    {service.badge && (
-                      <span className="inline-block bg-emerald-100 text-emerald-900 px-3 py-1 rounded text-sm font-semibold">
-                        {service.badge}
-                      </span>
-                    )}
-                    <Button onClick={scrollToContact} className="w-full mt-4 bg-slate-900 hover:bg-slate-800 text-white font-medium">
-                      Select Service
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Bonus Package */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-12 bg-orange-600 rounded"></div>
-              <div>
-                <h4 className="text-3xl font-bold text-gray-900">{pricingData.california_bonus.title}</h4>
-                <span className="ca-badge">{pricingData.california_bonus.badge}</span>
-              </div>
-            </div>
-            <div className="max-w-md mx-auto">
-              {pricingData.california_bonus.services.map((service) => (
-                <Card key={service.id} className="premium-card bg-white border-2 border-slate-300">
-                  <CardHeader className="bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-                    <div className="flex justify-between items-center">
-                      <CardTitle className="text-2xl">{service.name}</CardTitle>
-                      <span className="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm">
-                        {service.badge}
-                      </span>
+              <div className="space-y-3">
+                {pricingData.california_ctc.services.map((service) => (
+                  <div key={service.id} className="flex items-center justify-between py-3 hover:bg-gray-50 px-4 rounded-lg transition-colors">
+                    <div>
+                      <p className="font-semibold text-gray-900">{service.name}</p>
+                      <p className="text-sm text-gray-600">{service.description}</p>
                     </div>
-                    <CardDescription className="text-slate-200 text-base">{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    <div className="text-center">
-                      <div className="text-5xl font-black text-slate-900 mb-2">${service.price}</div>
-                      <p className="text-emerald-700 font-bold mb-4">You Save: ${service.savings}</p>
-                      <Button onClick={scrollToContact} size="lg" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-lg py-6">
-                        Get This Package
+                    <div className="text-right flex items-center space-x-3">
+                      <span className="text-2xl font-bold text-indigo-600">${service.price}</span>
+                      {service.badge && (
+                        <span className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded font-semibold">{service.badge}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* California CARB */}
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-blue-600">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900">California CARB</h4>
+                    <span className="inline-block mt-1 px-3 py-1 bg-blue-100 text-blue-900 text-xs font-semibold rounded-full">CALIFORNIA</span>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {pricingData.california_carb.services.map((service) => (
+                  <div key={service.id} className="flex items-center justify-between py-3 hover:bg-gray-50 px-4 rounded-lg transition-colors">
+                    <div>
+                      <p className="font-semibold text-gray-900">{service.name}</p>
+                      <p className="text-sm text-gray-600">{service.description}</p>
+                    </div>
+                    <div className="text-right flex items-center space-x-3">
+                      <span className="text-2xl font-bold text-blue-600">${service.price}</span>
+                      {service.badge && (
+                        <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded font-semibold">{service.badge}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bonus Package */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 shadow-md border-2 border-amber-200">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-amber-100 p-3 rounded-lg">
+                    <svg className="w-8 h-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900">Bonus Package - California Only</h4>
+                    <span className="inline-block mt-1 px-3 py-1 bg-amber-200 text-amber-900 text-xs font-bold rounded-full">MOST POPULAR</span>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {pricingData.california_bonus.services.map((service) => (
+                  <div key={service.id} className="bg-white rounded-lg p-6 shadow-sm">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-xl font-bold text-gray-900">{service.name}</p>
+                      <span className="text-3xl font-black text-amber-600">${service.price}</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-emerald-700 font-bold">You Save: ${service.savings}</span>
+                      <Button onClick={scrollToContact} className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-8">
+                        Select Package
                       </Button>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Oregon Services */}
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-emerald-600">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-emerald-100 p-3 rounded-lg">
+                    <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900">Oregon Services</h4>
+                    <span className="inline-block mt-1 px-3 py-1 bg-emerald-100 text-emerald-900 text-xs font-semibold rounded-full">OREGON</span>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {pricingData.oregon.services.map((service) => (
+                  <div key={service.id} className="flex items-center justify-between py-3 hover:bg-gray-50 px-4 rounded-lg transition-colors">
+                    <div>
+                      <p className="font-semibold text-gray-900">{service.name}</p>
+                      <p className="text-sm text-gray-600">{service.description}</p>
+                    </div>
+                    <div className="text-right flex items-center space-x-3">
+                      <span className="text-2xl font-bold text-emerald-600">${service.price}</span>
+                      {service.badge && (
+                        <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded font-semibold">{service.badge}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Oregon Services */}
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-2 h-12 bg-green-800 rounded"></div>
-              <div>
-                <h4 className="text-3xl font-bold text-gray-900">{pricingData.oregon.title}</h4>
-                <span className="or-badge">{pricingData.oregon.badge}</span>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {pricingData.oregon.services.map((service) => (
-                <Card key={service.id} className="premium-card premium-card-green bg-white">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">{service.name}</CardTitle>
-                    <CardDescription className="text-gray-600">{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="price-badge mb-4" style={{background: '#064e3b'}}>${service.price}</div>
-                    {service.badge && (
-                      <span className="inline-block bg-emerald-100 text-emerald-900 px-3 py-1 rounded text-sm font-semibold">
-                        {service.badge}
-                      </span>
-                    )}
-                    <Button onClick={scrollToContact} className="w-full mt-4 bg-emerald-900 hover:bg-emerald-800 text-white font-medium">
-                      Select Service
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div className="text-center mt-12">
+            <Button onClick={scrollToContact} size="lg" className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-12 py-6 text-lg">
+              Request Service Now
+            </Button>
           </div>
         </div>
       </section>
