@@ -573,19 +573,19 @@ const Landing = () => {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {pricingData.oregon.services.map((service) => (
-                <Card key={service.id} className="premium-card-green hover:shadow-xl transition-all">
+                <Card key={service.id} className="premium-card premium-card-green bg-white">
                   <CardHeader>
-                    <CardTitle className="text-xl">{service.name}</CardTitle>
-                    <CardDescription>{service.description}</CardDescription>
+                    <CardTitle className="text-xl text-gray-900">{service.name}</CardTitle>
+                    <CardDescription className="text-gray-600">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="price-badge mb-4" style={{background: 'linear-gradient(135deg, #065f46 0%, #047857 100%)'}}>${service.price}</div>
+                    <div className="price-badge mb-4" style={{background: '#064e3b'}}>${service.price}</div>
                     {service.badge && (
-                      <span className="inline-block bg-green-100 text-green-900 px-3 py-1 rounded text-sm font-semibold">
+                      <span className="inline-block bg-emerald-100 text-emerald-900 px-3 py-1 rounded text-sm font-semibold">
                         {service.badge}
                       </span>
                     )}
-                    <Button onClick={scrollToContact} className="w-full mt-4 bg-green-800 hover:bg-green-700 text-white">
+                    <Button onClick={scrollToContact} className="w-full mt-4 bg-emerald-900 hover:bg-emerald-800 text-white font-medium">
                       Select Service
                     </Button>
                   </CardContent>
