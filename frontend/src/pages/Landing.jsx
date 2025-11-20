@@ -393,7 +393,7 @@ const Landing = () => {
                   <Mail className="h-5 w-5 mr-2" />
                   Email Us
                 </a>
-                <a href="https://wa.me/17732347187" className="modern-button inline-flex items-center justify-center" style={{ background: '#ea580c' }}>
+                <a href="https://wa.me/17732347187" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-all shadow-md">
                   <MessageCircle className="h-5 w-5 mr-2" />
                   WhatsApp
                 </a>
