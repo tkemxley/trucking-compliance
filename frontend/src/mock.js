@@ -61,7 +61,7 @@ export const mockFAQData = [
 export const mockPricingData = [
   {
     id: 1,
-    title: 'CARB Registration',
+    title: 'California CARB',
     price: 120,
     features: [
       'Initial CARB registration',
@@ -87,15 +87,42 @@ export const mockPricingData = [
   },
   {
     id: 3,
-    title: 'Full Compliance Package',
-    price: 250,
+    title: 'Oregon Registration',
+    price: 180,
+    features: [
+      'Oregon carrier registration',
+      'Complete documentation',
+      'IFTA/IRP coordination',
+      'Online submission',
+      'Annual support'
+    ],
+    popular: false
+  },
+  {
+    id: 4,
+    title: 'Oregon Temp Permit',
+    price: 85,
+    features: [
+      'Temporary trip permit',
+      'Fast 1-3 day processing',
+      'Single or multiple trips',
+      'Weight/size clearance',
+      'Instant confirmation'
+    ],
+    popular: false
+  },
+  {
+    id: 5,
+    title: 'CA + OR Full Package',
+    price: 450,
     features: [
       'CARB + Clean Truck Check',
+      'Oregon registration',
       'Complete documentation',
       'Priority processing',
-      'Annual ongoing support',
-      'Dedicated compliance manager',
-      'Save $20'
+      'Dedicated manager',
+      'Annual support both states',
+      'Save $100'
     ],
     popular: true
   }
