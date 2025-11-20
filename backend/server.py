@@ -69,9 +69,18 @@ async def get_status_checks():
     
     return status_checks
 
-# Compliance Request Endpoint
+# Compliance Request Endpoint with File Upload
 @api_router.post("/compliance-request", response_model=ComplianceRequestResponse)
-async def submit_compliance_request(request: ComplianceRequestCreate):
+async def submit_compliance_request(
+    companyName: str = Form(...),
+    contactPerson: str = Form(...),
+    phone: str = Form(...),
+    email: str = Form(...),
+    serviceNeeded: str = Form(...),
+    usdotMc: Optional[str] = Form(None),
+    message: Optional[str] = Form(None),
+    file: Optional[UploadFile] = File(None)
+):
     """
     Handle compliance request submission:
     1. Save to MongoDB
