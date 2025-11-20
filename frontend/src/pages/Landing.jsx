@@ -506,54 +506,112 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Penalties Section */}
+      {/* California Penalties Section */}
       <section className="py-20 bg-red-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <div className="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-              WARNING
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                CALIFORNIA VIOLATIONS
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                California Non-Compliance Penalties
+              </h3>
+              <p className="text-gray-700 text-lg">
+                Don't risk your California operations. CARB and Clean Truck Check violations result in severe consequences.
+              </p>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Penalties for Non-Compliance
-            </h3>
-            <p className="text-gray-700 text-lg">
-              Don't risk your business. Non-compliance can result in severe financial and operational consequences.
-            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
+                    <AlertTriangle className="h-6 w-6 text-red-600" />
+                  </div>
+                  <CardTitle className="text-xl">Heavy Fines</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 font-semibold text-lg mb-2">$1,000 - $10,000</p>
+                  <p className="text-gray-600">Per violation. Multiple CARB or CTC violations can accumulate quickly, resulting in devastating financial penalties.</p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
+                    <Shield className="h-6 w-6 text-red-600" />
+                  </div>
+                  <CardTitle className="text-xl">Registration Holds</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">DMV can place holds on vehicle registration, preventing renewal and legal operation until compliance is achieved.</p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
+                    <FileText className="h-6 w-6 text-red-600" />
+                  </div>
+                  <CardTitle className="text-xl">Vehicle Impoundment</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Non-compliant vehicles can be impounded during roadside inspections, causing operational delays and towing costs.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
-                  <AlertTriangle className="h-6 w-6 text-red-600" />
-                </div>
-                <CardTitle className="text-xl">Heavy Fines</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">$1,000 to $10,000 per violation. Multiple violations can add up quickly.</p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
-                  <Shield className="h-6 w-6 text-red-600" />
-                </div>
-                <CardTitle className="text-xl">Registration Holds</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Your vehicle registration can be suspended, preventing legal operation.</p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-red-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-red-100 p-3 rounded-lg w-fit mb-2">
-                  <FileText className="h-6 w-6 text-red-600" />
-                </div>
-                <CardTitle className="text-xl">Vehicle Impoundment</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">Non-compliant vehicles can be impounded during roadside inspections.</p>
-              </CardContent>
-            </Card>
+        </div>
+      </section>
+
+      {/* Oregon Penalties Section */}
+      <section className="py-20 bg-orange-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                OREGON VIOLATIONS
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Oregon Non-Compliance Penalties
+              </h3>
+              <p className="text-gray-700 text-lg">
+                Operating in Oregon without proper permits or account setup can result in immediate penalties.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-2 border-orange-200 hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="bg-orange-100 p-3 rounded-lg w-fit mb-2">
+                    <AlertTriangle className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-xl">Fixed Penalty</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 font-semibold text-2xl mb-2">$440</p>
+                  <p className="text-gray-600">Per violation for operating without valid Oregon trip permit or proper account setup.</p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 border-orange-200 hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="bg-orange-100 p-3 rounded-lg w-fit mb-2">
+                    <Shield className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-xl">Roadside Stops</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Vehicles can be stopped and cited during inspections. Delays in operations and additional scrutiny on future trips.</p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 border-orange-200 hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="bg-orange-100 p-3 rounded-lg w-fit mb-2">
+                    <FileText className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-xl">Mileage Report Fines</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Late or missing mileage reports result in penalties and potential account suspension until all reports are filed.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
