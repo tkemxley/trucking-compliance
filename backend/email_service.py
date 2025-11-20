@@ -59,6 +59,10 @@ class EmailService:
                             <h2 style="margin: 0;">🚛 New Compliance Request</h2>
                         </div>
                         <div class="content">
+                            <div class="field" style="background-color: #fef3c7; padding: 15px; border-left: 4px solid #f59e0b; margin-bottom: 20px;">
+                                <div class="label" style="font-size: 16px; color: #92400e;">Service Selected:</div>
+                                <div class="value" style="font-size: 18px; font-weight: bold; color: #b45309;">{request_data.get('serviceNeeded', 'Not specified')}</div>
+                            </div>
                             <div class="field">
                                 <div class="label">Company Name:</div>
                                 <div class="value">{request_data.get('companyName', 'N/A')}</div>
