@@ -538,21 +538,21 @@ const Landing = () => {
             </div>
             <div className="max-w-md mx-auto">
               {pricingData.california_bonus.services.map((service) => (
-                <Card key={service.id} className="premium-card-orange hover:shadow-2xl transition-all border-4">
-                  <CardHeader className="bg-gradient-to-r from-orange-600 to-orange-500 text-white">
+                <Card key={service.id} className="premium-card bg-white border-2 border-slate-300">
+                  <CardHeader className="bg-gradient-to-r from-slate-800 to-slate-700 text-white">
                     <div className="flex justify-between items-center">
                       <CardTitle className="text-2xl">{service.name}</CardTitle>
-                      <span className="bg-white text-orange-700 px-4 py-2 rounded-full font-bold text-sm">
+                      <span className="bg-white text-slate-900 px-4 py-2 rounded-full font-bold text-sm">
                         {service.badge}
                       </span>
                     </div>
-                    <CardDescription className="text-orange-100 text-base">{service.description}</CardDescription>
+                    <CardDescription className="text-slate-200 text-base">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="pt-6">
                     <div className="text-center">
-                      <div className="text-5xl font-black text-orange-600 mb-2">${service.price}</div>
-                      <p className="text-green-700 font-bold mb-4">You Save: ${service.savings}</p>
-                      <Button onClick={scrollToContact} size="lg" className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg py-6">
+                      <div className="text-5xl font-black text-slate-900 mb-2">${service.price}</div>
+                      <p className="text-emerald-700 font-bold mb-4">You Save: ${service.savings}</p>
+                      <Button onClick={scrollToContact} size="lg" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-lg py-6">
                         Get This Package
                       </Button>
                     </div>
