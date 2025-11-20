@@ -29,7 +29,7 @@ export const mockFAQData = [
   {
     id: 3,
     question: 'Do you help with Oregon trucking permits?',
-    answer: 'Yes! We provide Oregon carrier registration services and Oregon temporary trip permits. Whether you need full registration or quick temporary permits for crossing Oregon, we handle all paperwork and submissions.'
+    answer: 'Yes! We help open Oregon accounts, activate trucks in the system, file mileage reports (quarterly or monthly), and issue trip permits in just 20 minutes. Note: Permits are available weekdays only, and we don\'t handle overweight/oversize permits.'
   },
   {
     id: 4,
