@@ -749,6 +749,8 @@ const Landing = () => {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-blue-400 transition-colors">CARB Compliance</a></li>
                 <li><a href="#" className="hover:text-blue-400 transition-colors">Clean Truck Check</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Oregon Registration</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Oregon Permits</a></li>
                 <li><a href="#" className="hover:text-blue-400 transition-colors">Pricing</a></li>
                 <li><a href="#contact-section" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
               </ul>
