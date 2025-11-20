@@ -254,49 +254,49 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Oregon Services Section */}
+      {/* California Services Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-              OREGON SERVICES
+            <div className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+              CALIFORNIA SERVICES
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Oregon Trucking Registration & Permits
+              California CARB & Clean Truck Check Compliance
             </h3>
             <p className="text-gray-700 text-lg">
-              Complete Oregon carrier services including full registration and fast temporary trip permits for hassle-free operation in Oregon.
+              Full-service CARB registration and Clean Truck Check compliance for all commercial trucks operating in California.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
+            <Card className="border-2 border-blue-200 hover:shadow-lg transition-shadow">
               <CardHeader>
-                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
-                  <FileText className="h-6 w-6 text-green-600" />
+                <div className="bg-blue-100 p-3 rounded-lg w-fit mb-2">
+                  <Shield className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Oregon Carrier Registration</CardTitle>
+                <CardTitle className="text-xl">CARB Registration</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Complete online registration process</span>
+                    <span className="text-gray-700">Initial CARB registration</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">IFTA and IRP coordination</span>
+                    <span className="text-gray-700">Complete document preparation</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Weight/mile tax compliance</span>
+                    <span className="text-gray-700">VIN verification services</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Annual renewals and updates</span>
+                    <span className="text-gray-700">Submission and follow-up</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Full documentation support</span>
+                    <span className="text-gray-700">Approval confirmation</span>
                   </li>
                 </ul>
               </CardContent>
@@ -304,35 +304,143 @@ const Landing = () => {
             <Card className="border-2 border-blue-200 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="bg-blue-100 p-3 rounded-lg w-fit mb-2">
-                  <Clock className="h-6 w-6 text-blue-600" />
+                  <FileText className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl">Oregon Temporary Permits</CardTitle>
+                <CardTitle className="text-xl">Clean Truck Check</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Fast 1-3 business day processing</span>
+                    <span className="text-gray-700">Annual CTC registration</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Single or multiple trip permits</span>
+                    <span className="text-gray-700">Smoke test coordination</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Oversize/overweight clearance</span>
+                    <span className="text-gray-700">Report submission</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Online purchasing available</span>
+                    <span className="text-gray-700">Compliance tracking</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Instant confirmation and tracking</span>
+                    <span className="text-gray-700">Annual renewal reminders</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Oregon Services Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+              OREGON SERVICES
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Oregon Account Setup & Trip Permits
+            </h3>
+            <p className="text-gray-700 text-lg">
+              Fast Oregon account setup, truck activation, mileage reporting, and trip permits issued in just 20 minutes.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
+                  <Shield className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">Account Setup</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Open Oregon account</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Activate trucks in system</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Complete documentation</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Online submission</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
+                  <Clock className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">Trip Permits</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Issued in 20 minutes</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Single or multiple trips</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Weekday service only</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Standard weight vehicles</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-green-200 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="bg-green-100 p-3 rounded-lg w-fit mb-2">
+                  <FileText className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">Mileage Reports</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Quarterly or monthly filing</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Complete calculations</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Timely submissions</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">Compliance tracking</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="max-w-3xl mx-auto mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-sm text-gray-700 text-center">
+              <strong>Note:</strong> We do not handle overweight/oversize permits. Trip permits are not available on weekends.
+            </p>
           </div>
         </div>
       </section>
