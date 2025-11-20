@@ -602,7 +602,7 @@ const Landing = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h3 className="text-4xl font-black mb-4">Request Compliance Service</h3>
-              <p className="text-xl text-blue-100">Fill out the form below and we'll contact you within 24 hours</p>
+              <p className="text-xl text-slate-300">Fill out the form below and we'll contact you within 24 hours</p>
             </div>
 
             <Card className="bg-white text-gray-900">
