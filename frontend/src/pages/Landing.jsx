@@ -728,7 +728,7 @@ const Landing = () => {
                 Frequently Asked Questions
               </h3>
               <p className="text-gray-700 text-lg">
-                Get answers to common questions about California compliance requirements.
+                Get answers to common questions about California and Oregon compliance requirements.
               </p>
             </div>
             <Accordion type="single" collapsible className="space-y-4">
