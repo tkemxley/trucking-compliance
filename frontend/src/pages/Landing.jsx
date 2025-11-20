@@ -370,6 +370,92 @@ const Landing = () => {
       </section>
 
       {/* Consequences and Penalties - California */}
+      {/* Penalties - California */}
+      <section className="py-20 bg-red-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="ca-badge mb-4 inline-block">CALIFORNIA PENALTIES</span>
+              <h3 className="text-4xl font-black text-gray-900 mb-4">California Non-Compliance Consequences</h3>
+              <p className="text-xl text-gray-700">CARB & Clean Truck Check violations carry severe penalties</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-l-4 border-red-600">
+                <CardHeader>
+                  <AlertTriangle className="h-12 w-12 text-red-600 mb-2" />
+                  <CardTitle>Heavy Fines</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-red-600 mb-2">$1,000 - $10,000</p>
+                  <p className="text-gray-600">Per vehicle violation for CARB non-compliance</p>
+                </CardContent>
+              </Card>
+              <Card className="border-l-4 border-red-600">
+                <CardHeader>
+                  <Shield className="h-12 w-12 text-red-600 mb-2" />
+                  <CardTitle>Registration Holds</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">DMV registration suspension preventing legal operation and renewals</p>
+                </CardContent>
+              </Card>
+              <Card className="border-l-4 border-red-600">
+                <CardHeader>
+                  <FileText className="h-12 w-12 text-red-600 mb-2" />
+                  <CardTitle>Vehicle Impoundment</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Roadside citations and vehicle impoundment for non-compliant trucks</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Penalties - Oregon */}
+      <section className="py-20 bg-orange-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="or-badge mb-4 inline-block">OREGON PENALTIES</span>
+              <h3 className="text-4xl font-black text-gray-900 mb-4">Oregon Non-Compliance Consequences</h3>
+              <p className="text-xl text-gray-700">Operating without proper permits or reports</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-l-4 border-orange-600">
+                <CardHeader>
+                  <AlertTriangle className="h-12 w-12 text-orange-600 mb-2" />
+                  <CardTitle>Fixed Penalty</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-4xl font-bold text-orange-600 mb-2">$440</p>
+                  <p className="text-gray-600">Per violation for operating without valid Oregon permit</p>
+                </CardContent>
+              </Card>
+              <Card className="border-l-4 border-orange-600">
+                <CardHeader>
+                  <Clock className="h-12 w-12 text-orange-600 mb-2" />
+                  <CardTitle>Account Suspension</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Late or missing mileage reports result in account suspension and penalties</p>
+                </CardContent>
+              </Card>
+              <Card className="border-l-4 border-orange-600">
+                <CardHeader>
+                  <Shield className="h-12 w-12 text-orange-600 mb-2" />
+                  <CardTitle>Roadside Enforcement</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Vehicles stopped during inspections, operational delays and citations</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-red-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -505,92 +591,6 @@ const Landing = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Penalties - California */}
-      <section className="py-20 bg-red-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="ca-badge mb-4 inline-block">CALIFORNIA PENALTIES</span>
-              <h3 className="text-4xl font-black text-gray-900 mb-4">California Non-Compliance Consequences</h3>
-              <p className="text-xl text-gray-700">CARB & Clean Truck Check violations carry severe penalties</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-l-4 border-red-600">
-                <CardHeader>
-                  <AlertTriangle className="h-12 w-12 text-red-600 mb-2" />
-                  <CardTitle>Heavy Fines</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold text-red-600 mb-2">$1,000 - $10,000</p>
-                  <p className="text-gray-600">Per vehicle violation for CARB non-compliance</p>
-                </CardContent>
-              </Card>
-              <Card className="border-l-4 border-red-600">
-                <CardHeader>
-                  <Shield className="h-12 w-12 text-red-600 mb-2" />
-                  <CardTitle>Registration Holds</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">DMV registration suspension preventing legal operation and renewals</p>
-                </CardContent>
-              </Card>
-              <Card className="border-l-4 border-red-600">
-                <CardHeader>
-                  <FileText className="h-12 w-12 text-red-600 mb-2" />
-                  <CardTitle>Vehicle Impoundment</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Roadside citations and vehicle impoundment for non-compliant trucks</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Penalties - Oregon */}
-      <section className="py-20 bg-orange-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="or-badge mb-4 inline-block">OREGON PENALTIES</span>
-              <h3 className="text-4xl font-black text-gray-900 mb-4">Oregon Non-Compliance Consequences</h3>
-              <p className="text-xl text-gray-700">Operating without proper permits or reports</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-l-4 border-orange-600">
-                <CardHeader>
-                  <AlertTriangle className="h-12 w-12 text-orange-600 mb-2" />
-                  <CardTitle>Fixed Penalty</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold text-orange-600 mb-2">$440</p>
-                  <p className="text-gray-600">Per violation for operating without valid Oregon permit</p>
-                </CardContent>
-              </Card>
-              <Card className="border-l-4 border-orange-600">
-                <CardHeader>
-                  <Clock className="h-12 w-12 text-orange-600 mb-2" />
-                  <CardTitle>Account Suspension</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Late or missing mileage reports result in account suspension and penalties</p>
-                </CardContent>
-              </Card>
-              <Card className="border-l-4 border-orange-600">
-                <CardHeader>
-                  <Shield className="h-12 w-12 text-orange-600 mb-2" />
-                  <CardTitle>Roadside Enforcement</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">Vehicles stopped during inspections, operational delays and citations</p>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
