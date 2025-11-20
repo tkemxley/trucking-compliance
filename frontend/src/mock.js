@@ -70,7 +70,8 @@ export const mockPricingData = [
       'Submission & follow-up',
       'Approval confirmation'
     ],
-    popular: false
+    popular: false,
+    category: 'california'
   },
   {
     id: 2,
@@ -83,47 +84,65 @@ export const mockPricingData = [
       'Compliance tracking',
       'Renewal reminders'
     ],
-    popular: false
+    popular: false,
+    category: 'california'
   },
   {
     id: 3,
-    title: 'Oregon Registration',
+    title: 'Oregon Account Setup',
     price: 180,
     features: [
-      'Oregon carrier registration',
+      'Open Oregon account',
+      'Truck activation in system',
       'Complete documentation',
-      'IFTA/IRP coordination',
       'Online submission',
-      'Annual support'
+      'Setup support'
     ],
-    popular: false
+    popular: false,
+    category: 'oregon'
   },
   {
     id: 4,
-    title: 'Oregon Temp Permit',
+    title: 'Oregon Trip Permit',
     price: 85,
     features: [
-      'Temporary trip permit',
-      'Fast 1-3 day processing',
+      'Issued in 20 minutes',
       'Single or multiple trips',
-      'Weight/size clearance',
+      'Weekday service only',
+      'Standard weight vehicles',
       'Instant confirmation'
     ],
-    popular: false
+    popular: false,
+    category: 'oregon'
   },
   {
     id: 5,
+    title: 'Mileage Report Filing',
+    price: 120,
+    features: [
+      'Quarterly or monthly filing',
+      'Oregon mileage reports',
+      'Complete calculations',
+      'Timely submissions',
+      'Compliance tracking'
+    ],
+    popular: false,
+    category: 'oregon'
+  },
+  {
+    id: 6,
     title: 'CA + OR Full Package',
-    price: 450,
+    price: 550,
     features: [
       'CARB + Clean Truck Check',
-      'Oregon registration',
-      'Complete documentation',
+      'Oregon account setup',
+      'Mileage report filing',
       'Priority processing',
       'Dedicated manager',
       'Annual support both states',
-      'Save $100'
+      'Save $120'
     ],
-    popular: true
+    popular: true,
+    category: 'both'
   }
 ];
